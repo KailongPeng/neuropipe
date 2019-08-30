@@ -5,7 +5,7 @@
 set -e # stop immediately when an error occurs
 
 # add necessary directories to the system path
-export BXH_DIR=/jukebox/ntb/packages/bxh_xcede_tools/bin
+export BXH_DIR=/nexsan/apps/hpc/Tools/BXH_XCEDE/1.11.14/bin
 export MAGICK_HOME=/jukebox/ntb/packages/ImageMagick-6.5.9-9
 export BIAC_HOME=/jukebox/ntb/packages/BIAC_matlab/mr
 
@@ -33,3 +33,6 @@ LOCALIZER_DIR=analysis/firstlevel/localizer_hrf.feat
 ROI_DIR=results/roi
 ROI_KERNEL_TYPE=sphere
 ROI_KERNEL_SIZE=4
+module load BXH_XCEDE_TOOLS
+module load FSL
+. /gpfs/milgram/apps/hpc.rhel7/software/FSL/6.0.0-centos7_64/etc/fslconf/fsl.sh

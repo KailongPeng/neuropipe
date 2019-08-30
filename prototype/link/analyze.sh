@@ -18,6 +18,10 @@ source globals.sh   # load subject-wide settings, such as the subject's ID
 echo "== beginning analysis of $SUBJ at $(date) =="
 bash prep.sh
 # run your high-level analysis scripts here
+
+echo begin localizer ...
+bash -x scripts/localizer.sh
+bash scripts/wait-for-feat.sh analysis/firstlevel/localizer_hrf.feat
 echo "== finished analysis of $SUBJ at $(date) =="
 
 popd > /dev/null   # return to the directory this script was run from, quietly

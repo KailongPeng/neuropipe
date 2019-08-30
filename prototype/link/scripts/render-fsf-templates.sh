@@ -39,3 +39,11 @@ function render_firstlevel {
 
 }
 
+render_firstlevel $FSF_DIR/localizer_hrf.fsf.template \
+                  $FIRSTLEVEL_DIR/localizer_hrf.feat \
+                  $FSL_DIR/data/standard/MNI152_T1_2mm_brain \
+                  $NIFTI_DIR/${SUBJ}_localizer01 \
+                  $NIFTI_DIR/${SUBJ}_t1_flash01.nii.gz \
+                  $NIFTI_DIR/${SUBJ}_t1_mprage_sag01.nii.gz \
+                  > $FSF_DIR/localizer_hrf.fsf
+
