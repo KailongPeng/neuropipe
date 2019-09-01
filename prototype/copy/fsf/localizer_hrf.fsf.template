@@ -33,7 +33,7 @@ set fmri(sscleanup_yn) 0
 set fmri(outputdir) "<?= $OUTPUT_DIR ?>"
 
 # TR(s)
-set fmri(tr) 1.5
+set fmri(tr) 1.500000 
 
 # Total volumes
 set fmri(npts) 244
@@ -185,7 +185,7 @@ set fmri(thresh) 3
 set fmri(prob_thresh) 0.05
 
 # Z threshold
-set fmri(z_thresh) 2.3
+set fmri(z_thresh) 3.1
 
 # Z min/max for colour rendering
 # 0 : Use actual Z min/max
@@ -212,10 +212,10 @@ set fmri(rendertype) 1
 set fmri(bgimage) 1
 
 # Create time series plots
-set fmri(tsplot_yn) 1
+set fmri(tsplot_yn) 0
 
 # Registration to initial structural
-set fmri(reginitial_highres_yn) 0
+set fmri(reginitial_highres_yn) 1
 
 # Search space for registration to initial structural
 # 0   : No search
@@ -224,10 +224,10 @@ set fmri(reginitial_highres_yn) 0
 set fmri(reginitial_highres_search) 90
 
 # Degrees of Freedom for registration to initial structural
-set fmri(reginitial_highres_dof) 3
+set fmri(reginitial_highres_dof) 6
 
 # Registration to main structural
-set fmri(reghighres_yn) 0
+set fmri(reghighres_yn) 1
 
 # Search space for registration to main structural
 # 0   : No search
@@ -236,7 +236,7 @@ set fmri(reghighres_yn) 0
 set fmri(reghighres_search) 90
 
 # Degrees of Freedom for registration to main structural
-set fmri(reghighres_dof) BBR
+set fmri(reghighres_dof) 6
 
 # Registration to standard image?
 set fmri(regstandard_yn) 1
@@ -251,7 +251,7 @@ set fmri(regstandard) "<?= $STANDARD_BRAIN ?>"
 # 0   : No search
 # 90  : Normal search
 # 180 : Full search
-set fmri(regstandard_search) 90
+set fmri(regstandard_search) 0
 
 # Degrees of Freedom for registration to standard space
 set fmri(regstandard_dof) 12
@@ -265,6 +265,10 @@ set fmri(regstandard_nonlinear_warpres) 10
 # High pass filter cutoff
 set fmri(paradigm_hp) 128
 
+# Total voxels
+set fmri(totalVoxels) 25985024
+
+
 # Number of lower-level copes feeding into higher-level analysis
 set fmri(ncopeinputs) 0
 
@@ -273,6 +277,12 @@ set feat_files(1) "<?= $DATA_FILE_PREFIX ?>"
 
 # Add confound EVs text file
 set fmri(confoundevs) 0
+
+# Session's structural image for analysis 1
+set initial_highres_files(1) "<?= $INITIAL_HIGHRES_FILE ?>"
+
+# Subject's structural image for analysis 1
+set highres_files(1) "<?= $HIGHRES_FILE ?>"
 
 # EV 1 title
 set fmri(evtitle1) "scene"
@@ -537,10 +547,10 @@ set fmri(conmask1_1) 0
 set fmri(alternative_mask) ""
 
 # Initial structural space registration initialisation transform
-set fmri(init_initial_highres) "<?= $INITIAL_HIGHRES_FILE ?>"
+set fmri(init_initial_highres) ""
 
 # Structural space registration initialisation transform
-set fmri(init_highres) "<?= $HIGHRES_FILE ?>"
+set fmri(init_highres) ""
 
 # Standard space registration initialisation transform
 set fmri(init_standard) ""

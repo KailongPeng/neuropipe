@@ -58,6 +58,7 @@ mkdir temp_output_dir #$(mktemp -d -t tmp.XXXXXX)
 ##extract the original raw.tar.gz file
 tar --extract --gunzip --file=$dicom_archive --directory=$temp_dicom_dir
 ##convert the extracted file into bxh file
+set -x
 $BXH_DIR/dicom2bxh $temp_dicom_dir/* $temp_output_dir/$PREFIX.bxh 1>/dev/null 2>/dev/null
 
 
@@ -85,7 +86,7 @@ cat $stripped_run_order_file | while read name num_expected_trs; do
   fi
   # convert the scan
   niigz_file_prefix=$temp_output_dir/${output_prefix}_$name
-  $BXH_DIR/bxh2analyze --analyzetypes --niigz --niftihdr -s "${temp_output_dir}/${PREFIX}-$number.bxh" $niigz_file_prefix 1>/dev/null 2>/dev/null
+  $BXH_DIR/bxh2analyze --overwrite --analyzetypes --niigz --niftihdr -s "${temp_output_dir}/${PREFIX}-$number.bxh" $niigz_file_prefix 1>/dev/null 2>/dev/null
 
   ##########################################################################
   if [ -n "$num_expected_trs" ]; then
@@ -100,4 +101,4 @@ done
 #rm -f $temp_output_dir/$PREFIX-*.dat
 #rm -f $stripped_run_order_file
 cp $temp_output_dir/* $output_dir
-
+set +x
